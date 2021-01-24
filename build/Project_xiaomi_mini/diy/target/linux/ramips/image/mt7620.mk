@@ -4,7 +4,7 @@
 
 include ./common-tp-link.mk
 
-DEFAULT_SOC := mt7621
+DEFAULT_SOC := mt7620
 
 KERNEL_DTB += -d21
 DEVICE_VARS += UIMAGE_MAGIC ELECOM_HWNAME LINKSYS_HWNAME
@@ -33,7 +33,7 @@ define Build/elecom-wrc-gs-factory
 		dd if=$@; \
 	) > $@.new
 	mv $@.new $@
-	echo -n "MT7621_ELECOM_$(product)" >> $@
+	echo -n "MT7620_ELECOM_$(product)" >> $@
 endef
 
 define Build/elecom-wrc-factory
@@ -632,23 +632,23 @@ define Device/linksys_re6500
 endef
 TARGET_DEVICES += linksys_re6500
 
-define Device/mediatek_ap-mt7621a-v60
+define Device/mediatek_ap-mt7620a-v60
   IMAGE_SIZE := 7872k
   DEVICE_VENDOR := Mediatek
-  DEVICE_MODEL := AP-MT7621A-V60 EVB
+  DEVICE_MODEL := AP-MT7620A-V60 EVB
   DEVICE_PACKAGES := kmod-usb3 kmod-sdhci-mt7620 kmod-sound-mt7620 -wpad-openssl
 endef
-TARGET_DEVICES += mediatek_ap-mt7621a-v60
+TARGET_DEVICES += mediatek_ap-mt7620a-v60
 
-define Device/mediatek_mt7621-eval-board
+define Device/mediatek_mt7620-eval-board
   BLOCKSIZE := 64k
   IMAGE_SIZE := 15104k
   DEVICE_VENDOR := MediaTek
-  DEVICE_MODEL := MT7621 EVB
+  DEVICE_MODEL := mt7620 EVB
   DEVICE_PACKAGES := -wpad-openssl
-  SUPPORTED_DEVICES += mt7621
+  SUPPORTED_DEVICES += mt7620
 endef
-TARGET_DEVICES += mediatek_mt7621-eval-board
+TARGET_DEVICES += mediatek_mt7620-eval-board
 
 define Device/MikroTik
   DEVICE_VENDOR := MikroTik
@@ -1293,7 +1293,7 @@ define Device/zyxel_wap6805
   IMAGE_SIZE := 32448k
   DEVICE_VENDOR := ZyXEL
   DEVICE_MODEL := WAP6805
-  DEVICE_PACKAGES := kmod-mt7603 kmod-mt7621-qtn-rgmii
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt7620-qtn-rgmii
   KERNEL := $(KERNEL_DTB) | uImage lzma | uimage-padhdr 160
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef

@@ -32,9 +32,6 @@ TIME b "修改 默认IP为 192.168.57.1"
 sed -i "s/192.168.1.1/192.168.57.1/g" package/base-files/files/bin/config_generate
 echo
 TIME b "插件 重命名"
-sed -i 's/_("qBittorrent")/_("BT下载")/g' feeds/luci/applications/luci-app-qbittorrent/luasrc/controller/qbittorrent.lua
-echo
-TIME b "修改主机名字"
 sed -i 's/cbi("qbittorrent"),_("qBittorrent")/cbi("qbittorrent"),_("BT下载")/g' package/lean/luci-app-qbittorrent/luasrc/controller/qbittorrent.lua
 echo
 TIME g "设置密码为空"
